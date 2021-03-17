@@ -48,6 +48,18 @@ const setupQuiz = () => {
   }
 }
 
+/*
+const setup = () => {
+  document.getElementById('js-question').textContent = quiz[quizIndex].question;
+  let buttonIndex = 0;
+ while(buttonIndex < buttonLength){
+  $button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
+  buttonIndex++;
+}
+
+}
+*/
+
 setupQuiz();
 
 const clickHandler = (e) => {
@@ -57,6 +69,18 @@ const clickHandler = (e) => {
   } else {
     window.alert('incorrect');
   }
+
+  /*
+  
+   const clickHandler = (e) => {
+     if (quiz[quizIndex].correct === e.target.textContent) {
+       window.alert('correct');
+       score++;
+     } else {
+       window.alert('incorrect');
+     }
+   }
+   */
 
   quizIndex++;
 
@@ -68,6 +92,7 @@ const clickHandler = (e) => {
   }
 
 
+
   let handlerIndex = 0;
   while (handlerIndex < buttonLength) {
     $button[handlerIndex].addEventListener('click', (e) => {
@@ -76,3 +101,13 @@ const clickHandler = (e) => {
 
     handlerIndex++;
   }
+
+/*
+
+  let handlerIndex = 0;
+  while(handlerIndex < buttonLength) {
+    $button[handlerIndex].addEventListener('click', (e) => {
+      clickHandler(e);
+    })
+  }
+*/
