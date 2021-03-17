@@ -1,4 +1,4 @@
-
+/*
 const $button = document.getElementById('add-button');
 $button.addEventListener('click', () => {
 
@@ -27,3 +27,29 @@ $button.addEventListener('click', () => {
 
 
 });
+
+*/
+
+(() => {
+
+  const $button = document.getElementById('add-button');
+  $button.addEventListener('click', () => {
+
+    const $input = document.getElementById('new-todo');
+    const $val = document.createElement('li');
+    $val.innerText = $input.value;
+
+    const $doneButton = document.createElement('ul');
+    $doneButton.innerText = 'done'
+    $val.appendChild($doneButton);
+
+    $doneButton.addEventListener('click', () => {
+      const li = $doneButton.closest('li');
+      li.classList.toggle('done');
+    });
+
+    const $ul = document.querySelector('ul');
+    $ul.appendChild($element);
+
+  });
+})();
