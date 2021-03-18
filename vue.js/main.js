@@ -14,7 +14,7 @@
     name: '桃太郎',
   },
 });
- 
+
 // 双方向ディレクティブである
 // またディレクティブの省略方法がある
 
@@ -37,7 +37,7 @@ const app = new Vue({
       return '';
     },
   },
-}); 
+});
 
 const app = new Vue({
   el: '#example',
@@ -57,7 +57,7 @@ const app = new Vue({
       return '';
     },
   },
-}); 
+});
 
 // 算出プロパティもオブションオブジェクトのプロパティとして描きます。
 // オブジェクトを定義してその中に関数を書きます。
@@ -95,7 +95,6 @@ const app = new Vue({
     activeTab: '',
   },
 });
-*/
 // v-showとv-ifの使い分けについて
 // 頻繁に切り替える場合はvshow一度表示したらほとんど切り替えることがない場合はvifを使うといいでしょう。
 
@@ -131,3 +130,34 @@ new Vue({
   },
 });
 
+// 2秒後に非表示にする
+Vue.directive('hide-async', {
+  bind(el, binding) {
+    setTimeout(() => {
+      el.style.display = 'none';
+    }, binding.value);
+  },
+});
+
+new Vue({
+  el: '#example',
+});
+*/
+
+
+// イベントハンドラを登録する
+
+Vue.directive('change-color', {
+  bind(el, binding) {
+    el.addEventListener('click', () => {
+      el.style.color = binding.value;
+    });
+  },
+});
+
+// イベントハンドラをしかける
+// イベントの種類、イベントリスナー
+
+new Vue({
+  el: '#example',
+});
