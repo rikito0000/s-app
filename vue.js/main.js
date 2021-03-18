@@ -198,9 +198,6 @@ Vue.component('buttons-preference', {
   </div>
   `
 });
-*/
-
-
 Vue.component('component-examples', {
   template: `
    <div>
@@ -213,6 +210,75 @@ Vue.component('component-examples', {
 new Vue({
   el: '#example'
 });
+
+
+// 全てがグローバル登録のコンポーネント
+
+Vue.component('button-preference', {
+  template: `
+    <button>いいね</button>
+  `,
+});
+
+Vue.component('button-empathy', {
+  template: `
+    <button>そだね</button>
+  `,
+});
+
+Vue.component('buttons-sns', {
+  template: `
+    <div>
+      <button-preference></button-preference>
+      <button-empathy></button-empathy>
+    </div>
+  `,
+});
+
+
+
+new Vue({
+  el: '#example'
+});
+
+*/
+// index.htmlで直接使っているのはbuttons-snsコンポーネントのみで
+// 後の二つはコンポーネントのなかで使用しています。
+// グローバル登録なのでインスタンス内のどこでも使えるということです。
+
+// ローカル登録
+const buttonPreference = {
+  template: `
+    <button>いいね！</button>
+  `,
+};
+
+const buttonEmpathy = {
+  template: `
+    <button>そだね</button>
+  `,
+};
+
+const buttonSns = {
+  components: {
+    'button-preference': buttonPreference,
+    'button-empathy': buttonEmpathy,
+  },
+  template: `
+    <div>
+      <button-preference></button-preference>
+      <button-empathy></button-empathy>
+    </div>
+  `,
+};
+
+new Vue({
+  el: '#example',
+  components: {
+    'buttons-sns': buttonSns,
+  },
+});
+
 
 
 
