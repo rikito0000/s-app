@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,
+ initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <!-- <ul id="example2">
+    <li v-for="character in characters" v-bind:key="character">
+      {{ character }}
+    </li>
+  </ul> -->
+  <!--   <div id="example">
+    <input v-bind:value="name" v-on:input="name = $event.target.value">
+    <div>{{ name }}</div>
+  </div> -->
+  <!--   <div id="example">
+    <input v-model="name">
+    <p>{{ name }}</p>
+  </div> -->
+  <!--   <div id="example">
+    <div>
+      <p>
+        身長<input v-model="height" type="text">cm
+      </p>
+      <p>
+        体重<input v-model="weight" type="text">kg
+      </p>
+    </div>
+    <div>
+      BMI: {{ bmi }}
+    </div>
+  </div>-->
+
+  <!--   <div id="example">
+    <div>
+      <p><input v-model="height" type="text"></p>
+      <p><input v-model="weight" type="text"></p>
+    </div>
+    <div>
+      BMI: {{ getBmi() }}
+    </div>
+  </div> -->
+  <!-- 
+  <div id="example">
+    <p>
+      <button v-on:click="countUp()">{{ count }}回</button>
+    </p>
+    <p>現在時刻メソッド；{{ getDate() }}</p>
+    <p>現在時刻プロパティ；{{ date }}</p>
+  </div> -->
+
+  <div id="example">
+    <ul class="tabs-menu">
+      <li 　v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = 'tabs-1'">
+        tab1
+      </li>
+      <li 　v-bind:class="{active: activeTab === 'tabs-2'}" v-on:click="activeTab = 'tabs-2'">
+        tab2
+      </li>
+      <li 　v-bind:class="{active: activeTab === 'tabs-3'}" v-on:click="activeTab = 'tabs-3'">
+        tab3
+      </li>
+    </ul>
+    <section class="tabs-content">
+      <section v-show="activeTab === 'tabs-1'">
+        <p>タブ１の内容が入ります</p>
+      </section>
+      <section v-show="activeTab === 'tabs-2'">
+        <p>タブ2の内容が入ります</p>
+      </section>
+      <section v-show="activeTab === 'tabs-3'">
+        <p>タブ3の内容が入ります</p>
+      </section>
+    </section>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
