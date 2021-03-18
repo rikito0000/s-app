@@ -142,8 +142,6 @@ Vue.directive('hide-async', {
 new Vue({
   el: '#example',
 });
-*/
-
 
 // イベントハンドラを登録する
 
@@ -161,3 +159,62 @@ Vue.directive('change-color', {
 new Vue({
   el: '#example',
 });
+
+
+//コンポーネントについて
+// 繰り返し使えるようにしたインスタンスのことです。
+// コンポーネントにデータを持たせる
+
+Vue.component('button-preference', {
+  data() {
+    return { count: 0 };
+  },
+  methods: {
+    countUp() {
+      this.count += 1;
+    },
+  },
+
+  template: `
+    <button v-on:click="countUp">
+      {{ count }} いいね！
+    </button>
+  `,
+});
+
+
+new Vue({
+  el: '#example',
+});
+
+// コンポネンとでデータを定義する場合は関数で定義する必要がある。
+// ルート要素は一つにする必要がある。
+
+Vue.component('buttons-preference', {
+  template: `
+  <div>
+     <button>いいね</button>
+     <button>そうだね</button>
+  </div>
+  `
+});
+*/
+
+
+Vue.component('component-examples', {
+  template: `
+   <div>
+   <div v-for="example in examples">
+   {{ example }}
+    </div>
+   </div>
+  `,
+})
+new Vue({
+  el: '#example'
+});
+
+
+
+
+
