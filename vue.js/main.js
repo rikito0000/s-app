@@ -88,14 +88,46 @@ const app = new Vue({
   },
 });
 
-*/
 
 const app = new Vue({
   el: '#example',
   data: {
-    activeTab: 'tabs-1'
+    activeTab: '',
   },
 });
+*/
+// v-showとv-ifの使い分けについて
+// 頻繁に切り替える場合はvshow一度表示したらほとんど切り替えることがない場合はvifを使うといいでしょう。
 
+new Vue({
+  el: '#example',
+  data: {
+    tabs: null,
+    activeTab: null,
+  },
+  created() {
+    setTimeout(() => {
+      const fetchedData = [
+        {
+          id: 'tabs-1',
+          title: 'tab1',
+          content: 'tab1の内容が入ります'
+        },
+        {
+          id: 'tabs-2',
+          title: 'tab2',
+          content: 'tab2の内容が入ります'
+        },
 
+        {
+          id: 'tabs-3',
+          title: 'tab3',
+          content: 'tab3の内容が入ります'
+        }
+      ];
+      this.tabs = fetchedData;
+      this.activeTab = fetchedData[0];
+    }, 2000);
+  },
+});
 
