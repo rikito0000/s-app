@@ -55,7 +55,7 @@ Vue.filter('numberFormat', function (value) {
 // グローバルフィルターについて
 
 
-const app = new Vue({
+/*const app = new Vue({
   el: '#app',
   data: {
     message: 'hello',
@@ -63,12 +63,12 @@ const app = new Vue({
     ok: true,
     jpyPrice: 298000
   },
-  /*   filters: {
+     filters: {
       numberFormat: function (value) {
         return value.toLocaleString()
       }
-    }  */
-});
+    }
+}); */
 
 // ローカルフィルターで表示させる
 
@@ -76,11 +76,96 @@ const app = new Vue({
 // パイプで繋げてあげるだけで可能
 // v - bind: href = "url"を省略可能である点に中がt必要です
 // もっとできる点に興味がありますのでもっとd系マイstart"
-: href = "url"
+// : href = "url"
+// ディレクティブの省略可能な方法
+// 可読性を上げるためにテンプレート側にできる限り処理を書かないようにして
+// computedに処理まとめてその関数をテンプレート側で呼び出して戻り値で表示させるようにする
+/* 
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'hellohello',
+    basePrice: 100,
+    name: 'taro',
+    weight: '',
+    height: ''
+  },
+  computed: {
+    reversedMessage: function () {
+      return this.message.split('').reverse().join('')
+    },
+    computedNumber: function () {
+      console.log('computed');
+      return Math.random()
+    },
+    taxIncludePrice: {
+      get: function () {
+        return parseInt(this.basePrice * 1.08)
+      },
+      set: function (taxIncludePrice) {
+        this.basePrice = Math.ceil(taxIncludePrice / 1.08)
+      },
+    },
+    bmi() {
+      if (this.height && this.weight) {
+        const meterHeight = this.height / 100;
+        const bmi = this.weight / (meterHeight * meterHeight);
 
+        return bmi.toFixed(2);
+      }
 
+      return '';
+    },
+  },
+  methods: {
+    reverseMessageMethod: function () {
+      return this.message.split('').reverse().join('')
+    },
+    methodsNumber: function () {
+      console.log('methods');
+      return Math.random()
+    },
 
+    getBmi() {
+      if (this.height && this.weight) {
+        const meterHeight = this.height / 100;
+        const bmi = this.weight / (meterHeight * meterHeight);
 
+        return bmi.toFixed(2);
+      }
 
+      return '';
+    },
+  },
+});
+ */
+// computedキャッシュされる依存関係に基づき
+// methodsキャッシュされない
+// computeds算出プロパティと
+// methodsメソッドの使い分け
+// キャッシュされるということです
+// データを一時的に保存しておくことです。
+
+// 算出プロパティの場合、データが更新された時に再計算します。
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    count: 0,
+  },
+  computed: {
+    date() {
+      return new Date().toLocaleString();
+    },
+  },
+  methods: {
+    countUp() {
+      this.count += 1;
+    },
+    getDate() {
+      return new Date().toLocaleString();
+    },
+  },
+});
 
 
