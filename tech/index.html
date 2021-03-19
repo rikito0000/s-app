@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <title>Document</title>
 </head>
@@ -34,25 +35,84 @@
     <input type="text" v-bind:value="price | numberFormat">
     <p>
 
-    <p>
+    <div>
+      BMI: {{ getBmi() }}
+    </div>
+ -->
+    <!--   <p>
+
       <button v-on:click="countUp()">{{ count }}回</button>
     </p>
     <p>現在時刻（メソッド）： {{ getDate() }}</p>
     <p>現在時刻（算出プロパティ）： {{ date }}</p>
+
+
+
+    <ul class="tabs-menu">
+      <li v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = 'tabs-1'">
+        tab1
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-2'}" v-on:click="activeTab = 'tabs-2'">
+        tab2
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-3'}" v-on:click="activeTab = 'tabs-3'">
+        tab3
+      </li>
+    </ul>
+    <section class="tabs-content">
+      <section v-if="activeTab === 'tabs-1'">
+        <p>タブ１を内容が入ります。</p>
+      </section>
+
+
+      <section v-else-if="activeTab === 'tabs-2'">
+        <p>タブ2を内容が入ります。</p>
+      </section>
+
+
+      <section v-else-if="activeTab === 'tabs-3'">
+        <p>タブ3を内容が入ります。</p>
+      </section>
+      <section v-else>
+        <p> タブを選択してください</p>
+      </section>
+    </section>
+ -->
+
+    <!--     <template v-if="tabs !== null">
+      <ul class="tabs-menu">
+        <li v-for="tab in tabs" v-bind:key='tab.id' v-bind:class="{active: activeTab.id === tab.id }"
+          v-on:click="activeTab = tab">
+          {{ tab.title }}
+        </li>
+      </ul>
+      <section class="tabs-content">
+        <section>
+          <p>{{ activeTab.content }}</p>
+        </section>
+      </section>
+    </template>
+    <template v-else>
+      <p>データを取得中です</p>
+    </template> -->
+
+    <template v-if="tabs !== null">
+      <ul class="tabs-menu">
+        <li v-for="tab in tabs" v-bind:key="tab.id" v-bind:class="{active: activeTab.id === tab.id}"
+          v-on:click="activeTab = tab">
+          {{ tab.title }}
+        </li>
+      </ul>
+      <section class="tabs-content">
+        <section>
+          <p>{{ activeTab.content }}</p>
+        </section>
+      </section>
+    </template>
+    <template　v-else>
+      <p>データを取得中</p>
+    </template>
   </div>　
-
-      {{ reversedMessage }}
-      {{ reversedMessage }}
-      {{ reversedMessage }}
-    </p>
-    <p>
-      {{ reverseMessageMethod() }}
-    </p>
-
-    <p>
-      base price: <input type="text" v-model="basePrice">
-  
-
   <script src="main.js"></script>
 </body>
 
@@ -67,3 +127,6 @@
 <!-- vーmodelディレクティブを使用することで、onとbindディレクティブの両方を使った場合と同じように双方向でーたバインディングを実行できます。 -->
 
 <!-- 算出プロパティについて　-->
+<!-- タブ機能を作成 -->
+<!-- クリックされたタブの要素にactiveクラスを付与してそれに対応するコンテンツを表示する -->
+<!-- 配列をもとにしたタブ作成について -->
