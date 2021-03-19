@@ -22,37 +22,36 @@
     </ul> 
     <input v-bind:value="name" v-on:input="name = $event.target.value">
     <p>{{ name }}</p> -->
-    <!-- <p>{{ message }}</p>
+
+    <!--  <p>{{ message }}</p>
     <p>{{ number + 1 }}</p>
     <p>{{ message.split('').reverse().join('') }}</p>
     <p>{{ ok ? 'YES' : 'NO'}}</p>
-    <p>{{ ok ? message : ''}}</p>
-     <p>{{ price | numberFormat }}</p>
+    <p>{{ ok ? message : ''}}</p> -->
+    <!--  <p>{{ price | numberFormat }}</p>
+
     <h2>v-bind</h2>
     <input type="text" v-bind:value="price | numberFormat">
     <p>
-      {{ jpyPrice | toUSD | numberFormat}}
-    </p> 
-    <input type="text" v-model="name">
-    <p>{{ name }}</p>　-->
 
-    <!--  <p>
-      身長；<input type="text" v-model='height'>
-    </p>
-    <p>
-      体重；<input type="text" v-model='weight'>
-    </p>
-
-    <div>
-      BMI: {{ getBmi() }}
-    </div>
- -->
     <p>
       <button v-on:click="countUp()">{{ count }}回</button>
     </p>
     <p>現在時刻（メソッド）： {{ getDate() }}</p>
     <p>現在時刻（算出プロパティ）： {{ date }}</p>
   </div>　
+
+      {{ reversedMessage }}
+      {{ reversedMessage }}
+      {{ reversedMessage }}
+    </p>
+    <p>
+      {{ reverseMessageMethod() }}
+    </p>
+
+    <p>
+      base price: <input type="text" v-model="basePrice">
+  
 
   <script src="main.js"></script>
 </body>

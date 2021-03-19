@@ -80,6 +80,7 @@ Vue.filter('numberFormat', function (value) {
 // ディレクティブの省略可能な方法
 // 可読性を上げるためにテンプレート側にできる限り処理を書かないようにして
 // computedに処理まとめてその関数をテンプレート側で呼び出して戻り値で表示させるようにする
+
 /* 
 const app = new Vue({
   el: '#app',
@@ -147,25 +148,4 @@ const app = new Vue({
 // データを一時的に保存しておくことです。
 
 // 算出プロパティの場合、データが更新された時に再計算します。
-
-const app = new Vue({
-  el: '#app',
-  data: {
-    count: 0,
-  },
-  computed: {
-    date() {
-      return new Date().toLocaleString();
-    },
-  },
-  methods: {
-    countUp() {
-      this.count += 1;
-    },
-    getDate() {
-      return new Date().toLocaleString();
-    },
-  },
-});
-
 
