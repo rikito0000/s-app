@@ -81,11 +81,15 @@ Vue.filter('numberFormat', function (value) {
 // 可読性を上げるためにテンプレート側にできる限り処理を書かないようにして
 // computedに処理まとめてその関数をテンプレート側で呼び出して戻り値で表示させるようにする
 
+/* 
 const app = new Vue({
   el: '#app',
   data: {
     message: 'hellohello',
-    basePrice: 100
+    basePrice: 100,
+    name: 'taro',
+    weight: '',
+    height: ''
   },
   computed: {
     reversedMessage: function () {
@@ -102,7 +106,17 @@ const app = new Vue({
       set: function (taxIncludePrice) {
         this.basePrice = Math.ceil(taxIncludePrice / 1.08)
       },
-    }
+    },
+    bmi() {
+      if (this.height && this.weight) {
+        const meterHeight = this.height / 100;
+        const bmi = this.weight / (meterHeight * meterHeight);
+
+        return bmi.toFixed(2);
+      }
+
+      return '';
+    },
   },
   methods: {
     reverseMessageMethod: function () {
@@ -111,12 +125,27 @@ const app = new Vue({
     methodsNumber: function () {
       console.log('methods');
       return Math.random()
-    }
-  }
-});
+    },
 
+    getBmi() {
+      if (this.height && this.weight) {
+        const meterHeight = this.height / 100;
+        const bmi = this.weight / (meterHeight * meterHeight);
+
+        return bmi.toFixed(2);
+      }
+
+      return '';
+    },
+  },
+});
+ */
 // computedキャッシュされる依存関係に基づき
 // methodsキャッシュされない
+// computeds算出プロパティと
+// methodsメソッドの使い分け
+// キャッシュされるということです
+// データを一時的に保存しておくことです。
 
-
+// 算出プロパティの場合、データが更新された時に再計算します。
 
