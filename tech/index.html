@@ -22,17 +22,49 @@
     </ul> 
     <input v-bind:value="name" v-on:input="name = $event.target.value">
     <p>{{ name }}</p> -->
-    <p>{{ message }}</p>
+    <!--  <p>{{ message }}</p>
     <p>{{ number + 1 }}</p>
     <p>{{ message.split('').reverse().join('') }}</p>
     <p>{{ ok ? 'YES' : 'NO'}}</p>
-    <p>{{ ok ? message : ''}}</p>
+    <p>{{ ok ? message : ''}}</p> -->
     <!--  <p>{{ price | numberFormat }}</p>
     <h2>v-bind</h2>
     <input type="text" v-bind:value="price | numberFormat"> -->
     <p>
-      {{ jpyPrice | toUSD | numberFormat}}
+      {{ reversedMessage }}
+      {{ reversedMessage }}
+      {{ reversedMessage }}
     </p>
+    <p>
+      {{ reverseMessageMethod() }}
+    </p>
+
+    <p>
+      base price: <input type="text" v-model="basePrice">
+    </p>
+    <p>
+      tax include price : <input type="text" v-model="taxIncludePrice">
+    </p>
+
+    <p>
+      Computed
+    </p>
+    <ol>
+      <li>{{ computedNumber }}</li>
+      <li>{{ computedNumber }}</li>
+      <li>{{ computedNumber }}</li>
+    </ol>
+
+    <p>methods</p>
+    <ol>
+      <li>{{ methodsNumber() }}</li>
+      <li>{{ methodsNumber() }}</li>
+      <li>{{ methodsNumber() }}</li>
+    </ol>
+
+
+
+
   </div>
 
   <script src="main.js"></script>
