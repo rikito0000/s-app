@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,20 +12,20 @@
 </head>
 
 <body>
-  <!-- <ul id="example2">
+<ul id="example2">
     <li v-for="character in characters" v-bind:key="character">
       {{ character }}
     </li>
   </ul> -->
-  <!--   <div id="example">
+<!--   <div id="example">
     <input v-bind:value="name" v-on:input="name = $event.target.value">
     <div>{{ name }}</div>
   </div> -->
-  <!--   <div id="example">
+<!--   <div id="example">
     <input v-model="name">
     <p>{{ name }}</p>
   </div> -->
-  <!--   <div id="example">
+<!--   <div id="example">
     <div>
       <p>
         身長<input v-model="height" type="text">cm
@@ -39,7 +39,7 @@
     </div>
   </div>-->
 
-  <!--   <div id="example">
+<!--   <div id="example">
     <div>
       <p><input v-model="height" type="text"></p>
       <p><input v-model="weight" type="text"></p>
@@ -48,7 +48,7 @@
       BMI: {{ getBmi() }}
     </div>
   </div> -->
-  <!-- 
+<!-- 
   <div id="example">
     <p>
       <button v-on:click="countUp()">{{ count }}回</button>
@@ -57,7 +57,7 @@
     <p>現在時刻プロパティ；{{ date }}</p>
   </div> -->
 
-  <!--   <div id="example">
+<!--   <div id="example">
     <ul class="tabs-menu">
       <li 　v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = 'tabs-1'">
         tab1
@@ -85,7 +85,7 @@
     </section>
   </div> -->
 
-  <!--   <div id="example">
+<!--   <div id="example">
     <template v-if="tabs !== null">
       <ul class="tabs-menu">
         <li v-for="tab in tabs" v-bind:key="tab.id" v-bind:class="{active: activeTab.id === tab.id}"
@@ -103,7 +103,7 @@
       <p>データを取得中です。</p>
     </template>
   </div> -->
-  <!-- カスタムディレクティブの登録について 
+<!-- カスタムディレクティブの登録について 
   <div id="example">
     <p v-hide-async="2000">2秒後に非表示</p>
   </div>
@@ -118,7 +118,7 @@
 
   <!--ん属性へのバインディングにはマスタッシュ構文ではなくて、v-bindを使用すること -->
 
-  <!-- 
+<!-- 
   <div id="example">
     <component-examples></component-examples>
   </div>
@@ -153,10 +153,10 @@
     </ol>
   </div>
   -->
-  <!--  <div id="ap">
+<!--  <div id="ap">
     <button v-on:click="onclick">click</button>
     {{ now }}
-  </div> -->
+  </div> 
   <div id="ap">
     <p>
       <input type="text" v-model="message">
@@ -182,6 +182,37 @@
   </div>
 
   <script src="main.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <p v-if="toggle">
+      <a v-bind:href="url">Vue.js</a>
+    </p>
+    <li v-for='lag in languages'>
+      {{ lag }}
+    </li>
+    <button v-on:click="clickHandler"> click </button>
+    <p>
+      <input type="text" v-model="message">
+    </p>
+
+  </div>
+  <script src='main.js'></script>
 </body>
 
 </html>
