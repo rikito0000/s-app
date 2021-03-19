@@ -80,6 +80,7 @@ Vue.filter('numberFormat', function (value) {
 // ディレクティブの省略可能な方法
 // 可読性を上げるためにテンプレート側にできる限り処理を書かないようにして
 // computedに処理まとめてその関数をテンプレート側で呼び出して戻り値で表示させるようにする
+
 /* 
 const app = new Vue({
   el: '#app',
