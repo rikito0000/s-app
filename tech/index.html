@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- {{ new Date().toLocaleString() }}
+    <a v-bind:href="url">techacademy</a>
+    <input type="text" v-bind:value="name">
+    <p>{{ name }}</p>
+    <ul id="app">
+      <li v-for="(member, index) in members" v-bind:key="index">
+        {{ index }} {{ member }}
+      </li>
+    </ul> 
+    <input v-bind:value="name" v-on:input="name = $event.target.value">
+    <p>{{ name }}</p> -->
+    <p>{{ message }}</p>
+    <p>{{ number + 1 }}</p>
+    <p>{{ message.split('').reverse().join('') }}</p>
+    <p>{{ ok ? 'YES' : 'NO'}}</p>
+    <p>{{ ok ? message : ''}}</p>
+    <!--  <p>{{ price | numberFormat }}</p>
+    <h2>v-bind</h2>
+    <input type="text" v-bind:value="price | numberFormat"> -->
+    <p>
+      {{ jpyPrice | toUSD | numberFormat}}
+    </p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
