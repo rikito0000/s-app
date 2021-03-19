@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-once>
+      <!-- v-once一度だけ行ってそれ以降は行わない描画更新のパフォーマンスを上げる際に使用 -->
+      {{ message }}
+    </p>
+    <button v-on:click="clickHandler">click</button>
+  </div>
+  　
+  <div id="pre">
+    <p v-html="message">/p>
+  </div>
+  <div id="sub">
+    <h2>
+      v-clock
+    </h2>
+    <p>
+      {{message}}
+    </p>
+  </div>
+
+  <div id="monster">
+    <p v-text="message"></p>
+    <p>{{ message }}</p>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
