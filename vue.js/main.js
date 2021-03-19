@@ -417,6 +417,7 @@ const app = new Vue({
       this.message = 'clicked'
     }
   }
+
 });
 
 
