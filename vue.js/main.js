@@ -371,8 +371,6 @@ const app = new Vue({
     },
   },
 });
-
-*/
 //　イベントハンドラをしかける
 // インスタンスのオブジェクトにアクセスするためにはthis.を使うこと
 
@@ -393,8 +391,8 @@ Vue.component('hello-component', {
   template: '<p>hello</p>'
 })
 
-const app = new Vue({
-  el: '#app'
+const a = new Vue({
+  el: '#a'
 })
 
 Vue.component('take-action', {
@@ -403,6 +401,22 @@ Vue.component('take-action', {
 
 const act = new Vue({
   el: '#act'
+});
+*/
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'hello, world!',
+    url: 'https://jp.vuejs.org/index.html',
+    toggle: false,
+    languages: ['javascript', 'ruby', 'python']
+  },
+  methods: {
+    clickHandler: function () {
+      this.message = 'clicked'
+    }
+  }
 });
 
 
