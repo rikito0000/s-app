@@ -116,15 +116,71 @@
     <buttons-preference></buttons-preference>
   </div>
 
+  <!--ん属性へのバインディングにはマスタッシュ構文ではなくて、v-bindを使用すること -->
 
+  <!-- 
   <div id="example">
     <component-examples></component-examples>
   </div>
-    -->
 
   <div id="example">
     <buttons-sns></buttons-sns>
   </div>
+
+  <div id="app">
+    <p>{{ message }}</p>
+    <p>{{ count }}</p>
+    <p>{{ user.prefecture }}</p>
+    <p>{{ colors[0] }}</p>
+   
+
+  <div id="app">
+
+    <p v-show="toggle">hello</p>
+  </div>
+
+
+  </div>
+
+
+  <div id="app">
+   </ol>
+    <ul>
+      <li v-for="(value, key) in user">
+        {{ key }} : {{ value }}
+      </li>
+    </ul>
+    </ol>
+  </div>
+  -->
+  <!--  <div id="ap">
+    <button v-on:click="onclick">click</button>
+    {{ now }}
+  </div> -->
+  <div id="ap">
+    <p>
+      <input type="text" v-model="message">
+    </p>
+    <p>
+      <input type="text" v-model="message">
+    </p>
+    <pre> {{ $data }}</pre>
+  </div>
+  <div id="app">
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+  </div>
+
+  <div id="act">
+    <take-action></take-action>
+    <take-action></take-action>
+    <take-action></take-action>
+    <take-action></take-action>
+    <take-action></take-action>
+  </div>
+
   <script src="main.js"></script>
 </body>
 

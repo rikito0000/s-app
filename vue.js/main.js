@@ -235,13 +235,10 @@ Vue.component('buttons-sns', {
   `,
 });
 
-
-
 new Vue({
   el: '#example'
 });
 
-*/
 // index.htmlで直接使っているのはbuttons-snsコンポーネントのみで
 // 後の二つはコンポーネントのなかで使用しています。
 // グローバル登録なのでインスタンス内のどこでも使えるということです。
@@ -278,6 +275,139 @@ new Vue({
     'buttons-sns': buttonSns,
   },
 });
+
+// 親からデータを渡す方法
+
+const buttonPreference = {
+  props: ['initialCount'],
+  template: `
+    <button>
+     {{ initialCount }}　いいね！
+    </button>
+  `,
+};
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference,
+  },
+});
+// ルートのテンプレートについて
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'hello, vue.js',
+    count: 10,
+    user: {
+      lastName: 'yamada',
+      firstName: 'taro',
+      prefecture: 'tokyo'
+    },
+    colors: ['red', 'green', 'blue']
+  },
+  // dataオプションに配列やオブジェクトを設定してバインディングする方法やりました。
+});
+//  データバインディングについて
+// データと同期することについて
+// 双方向バイディング
+// 単方向バインディング
+// ワンタイムバイディングについて
+// テンプレートについて
+// エラーを自力で解決する方法について
+
+//ディレクディブとはなにかついて
+// v-で始まる特別な属性のこと
+
+//属性のテキストバインディングする方法
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    message: 'hello'
+  }
+}
+);
+
+// 条件分岐をディレクティブで行う
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    toggle: false,
+  }
+});
+
+
+// 条件分岐v-show
+// 要素の表示非表示を行うことができる
+//　cssでdisplayをon/offしていることに注意が必要です。
+// 非表示にした場合は特にドムレベルで消えるわけではないこと注意が必要です。
+// v-ifではドムレベルで削除されるので頻繁に削除する場合は向いていない
+// v-forオブジェクトのくりかえし
+
+
+const app = new Vue({
+  el: '#app',
+
+  data: {
+    user: {
+      firstName: 'taro',
+      lastName: 'yamada',
+      age: 22
+    }
+  },
+});
+
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    now: ''
+  },
+  methods: {
+    onclick: function () {
+      this.now = new Date().toLocaleString();
+    },
+  },
+});
+
+*/
+//　イベントハンドラをしかける
+// インスタンスのオブジェクトにアクセスするためにはthis.を使うこと
+
+// 双方向データバインディングについて
+//テンプレーとの値とデータの値を簡単に双方向でバインディングできるようにすることが必要です。
+
+const ap = new Vue({
+  el: '#ap',
+  data: {
+    message: 'helloa'
+  }
+});
+
+// コンポーネントについて
+// ページを構成する部品のことをいいます。再利用性が高くなる点とコードの見通しが良くなる
+
+Vue.component('hello-component', {
+  template: '<p>hello</p>'
+})
+
+const app = new Vue({
+  el: '#app'
+})
+
+Vue.component('take-action', {
+  template: '<p>action</p>'
+});
+
+const act = new Vue({
+  el: '#act'
+});
+
+
+
+
 
 
 
