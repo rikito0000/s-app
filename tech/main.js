@@ -148,10 +148,11 @@ const app = new Vue({
 
 // 算出プロパティの場合、データが更新された時に再計算します。
 
-const app = new Vue({
+/* const app = new Vue({
   el: '#app',
   data: {
     count: 0,
+    activeTab: '',
   },
   computed: {
     date() {
@@ -166,6 +167,53 @@ const app = new Vue({
       return new Date().toLocaleString();
     },
   },
+}); */
+// 算出プロパティを使用することで余分な処理を実行されることを防ぐことがきます。
+// メソッドは呼ばれるたびに実行する必要のある処理で使用する
+//　呼び出す側のメソッドは呼び出しの式で書く場合とメソッド名だけを書く場合があります。
+
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    tabs: null,
+    activeTab: null,
+  },
+  created() {
+    setTimeout(() => {
+      const fetchedData = [
+        {
+          id: 'tabs-1',
+          title: 'tab1',
+          content: 'tab1の内容が入ります。'
+        },
+        {
+          id: 'tabs-2',
+          title: 'tab1',
+          content: 'tab1の内容が入ります。'
+        },
+        {
+          id: 'tabs-3',
+          title: 'tab1',
+          content: 'tab1の内容が入ります。'
+        },
+        {
+          id: 'tabs-4',
+          title: 'tabs',
+          content: 'tabsの内容が入ります。'
+        },
+      ];
+      this.tabs = fetchedData;
+      this.activeTab = fetchedData[0];
+    }, 3000);
+  },
 });
 
+// 実際の開発では、表示する情報事前にわからないこともあります。
+// 例えばデータベースから配列やオブジェエクトとして取得した情報をもとにタブを作成する場合です。
 
+// このような場合は繰り返し処理を用いて、配列やobject無いになるデータを一件ごとにタブと内容を設定することが望ましいです。
+
+// createdオブションオブジェクトとはライプサイクルプッ苦のこと
+// ライフサイクルフックは特定のタイミングで処理を行うことを目的に、
+//   Vue側で用意されている関数
