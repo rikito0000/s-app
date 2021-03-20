@@ -172,7 +172,7 @@ const app = new Vue({
 // メソッドは呼ばれるたびに実行する必要のある処理で使用する
 //　呼び出す側のメソッドは呼び出しの式で書く場合とメソッド名だけを書く場合があります。
 
-
+/* 
 const app = new Vue({
   el: '#app',
   data: {
@@ -207,7 +207,7 @@ const app = new Vue({
       this.activeTab = fetchedData[0];
     }, 3000);
   },
-});
+}); */
 
 // 実際の開発では、表示する情報事前にわからないこともあります。
 // 例えばデータベースから配列やオブジェエクトとして取得した情報をもとにタブを作成する場合です。
@@ -217,3 +217,154 @@ const app = new Vue({
 // createdオブションオブジェクトとはライプサイクルプッ苦のこと
 // ライフサイクルフックは特定のタイミングで処理を行うことを目的に、
 //   Vue側で用意されている関数
+
+//カスタムディレクティブを登録する
+
+Vue.directive('hide-async', {
+  bind(el, binding) {
+    setTimeout(() => {
+      el.style.display = 'none';
+    }, binding.value);
+  },
+});
+
+// 二つの引数を持ちます。
+// 一つ目の引数にはカスタムディレクティブの名前が
+// 二つ目の引数にはカスタムディレクティブの動作を定義するオブジェクトです。
+// このオブジェクトにフック関数を設置します。
+// bind関数は一度だけ呼び出される関数のことを言います。
+
+// 第一引数にはディレクティブが紐づく要素です。
+
+Vue.directive('change-color', {
+  bind(el, binding) {
+    el.addEventListener('click', () => {
+      el.style.color = binding.value;
+    });
+  },
+});
+
+/* 
+// コンポーネントについて
+Vue.component('button-preference', {
+  // コンポねーんとでデータを使用する場合は、data関数として定義しなければならない
+  // コンポーネントは繰り返し使えるインスタンスであることに関係しています。
+  // 注意点
+  data() {
+    return { count: 0 };
+  },
+  methods: {
+    countUp() {
+      this.count += 1;
+    },
+  },
+  // コンポーネントのルート要素は一つしか持てない
+  // 注意点です。
+
+  template: `<button v-on:click="countUp">{{ count }}</button>`
+});
+
+new Vue({
+  el: '#app',
+});
+
+Vue.component('button-preference', {
+  template: `
+    <button>iine</button>
+  `,
+});
+
+Vue.component('button-empathy', {
+  template: `
+    <button>soudane</button>
+  `,
+});
+
+Vue.component('button-sns', {
+  template: `
+    <div>
+      <button-preference></button-preference>
+      <button-empathy></button-empathy>
+    </div>
+  `,
+});
+ */
+
+/* const buttonPreference = {
+  template: `
+    <button>iine</button>
+  `,
+};
+
+
+const buttonEmpathy = {
+  template: `
+    <button>soudane</button>
+  `,
+};
+
+const buttonSns = {
+  components: {
+    'button-preference': buttonPreference,
+    'button-empathy': buttonEmpathy,
+  },
+  template: `
+    <div>
+      <button-preference></button-preference>
+      <button-empathy></button-empathy>
+    </div>
+  `,
+};
+
+
+new Vue({
+  el: '#app',
+  components: {
+    'button-sns': buttonSns,
+  }
+}); */
+
+
+
+
+// 繰り返し使えるインスタンスのことです。
+// グローバル登録したものをコンポーネントないで呼び出し
+//  コード量が増えてくるとコードが複雑化して大変見づらくなります
+// そこで数回しか使用しないコンポーネントはローカルで登録します。
+// ローカル登録はまず、コンポーネントをオブジェクトとして定義します。
+
+
+const buttonPreference = {
+  template: `
+    <button>iine</button>
+  `,
+};
+
+
+const buttonEmpathy = {
+  template: `
+    <button>soudane<button>
+  `,
+};
+
+
+const buttonSns = {
+  components: {
+    'button-preference': buttonPreference,
+    'button-empathy': buttonEmpathy,
+  },
+
+  template: `
+    <div>
+      <button-preference></button-preference>
+      <button-empathy></button-empathy>
+    </div>
+  `,
+};
+
+new Vue({
+  el: '#app',
+  components: {
+    'button-sns': buttonSns
+  },
+});
