@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div id="example">
+  <!--   <div id="example">
     <template v-if="tabs !== null">
       <ul class="tabs-menu">
         <li v-for="tab in tabs" v-bind:key="tab.key" v-bind:class="{active: activeTab.id === tab.id}"
@@ -30,8 +30,36 @@
       <p>データを取得中です。</p>
     </template>
   </div>
+ -->
+  <div id="example">
+    <template v-if="tabs !== null">
+      <ul class="tabs-menu">
+        <li v-for="tab in tabs" v-bind:key="tab.id" v-bind:class="{active: activeTab.id === tab.id}"
+          v-on:click="activeTab = tab">
+          {{ tab.title }}
+        </li>
+        <section class="tabs-content">
+          <section>
+            <p>{{ activeTab.content }}</p>
+          </section>
+        </section>
+      </ul>
+    </template>
+    <template v-else>
+      <p>データを取得中です。</p>
+    </template>
+    <div v-some-test="2000">kieru</div>
+    <div v-name="10000">kieru</div>
+    <div v-change-color="'red'">変わります</div>
+    <button-preference></button-preference>
+    <button-pre></button-pre>
+  </div>
 
   <script src="main.js"></script>
 </body>
 
 </html>
+
+
+<!-- createdというオプションを追加しています。ライフサイクルフックと呼ばれる関数の一つで
+特定のタイミンぶで処理を行うことを目的にVueで用意されている -->
