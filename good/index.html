@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!--   <div id="example">
+    <ul class="tabs-menu">
+      もし条件がtrueならliにactiveクラスをつけますという記述をしている　 
+      <li v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = 'tabs-1'">
+        タブ１
+         クリックしたらインスタンスのデータに値を代入するようにセットしておく 
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-2'}" v-on:click="activeTab = 'tabs-2'">
+        タブ２
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-3'}" v-on:click="activeTab = 'tabs-3'">
+        タブ３
+      </li>
+    </ul>
+    <section class="tabs-content">
+      <section v-if="activeTab === 'tabs-1'">
+        <p> tab1の内容が入ります</p>
+      </section>
+      <section v-else-if="activeTab === 'tabs-2'">
+        <p> tab2の内容が入ります</p>
+      </section>
+      <section v-else-if="activeTab === 'tabs-3'">
+        <p> tab3の内容が入ります</p>
+      </section>
+      <section v-else>
+        <p>タブを選択してください。</p>
+      </section>
+    </section>
+  </div>
+ -->
+  <div id="app">
+    <ul class="tabs-menu">
+      <li v-bind:class="{active: activeTab === 'tabs-1' }" v-on:click="activeTab = 'tabs-1'">
+        tab1
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-2' }" v-on:click="activeTab = 'tabs-2'">
+        tab2
+      </li>
+      <li v-bind:class="{active: activeTab === 'tabs-3' }" v-on:click="activeTab = 'tabs-3'">
+        tab3
+      </li>
+    </ul>
+    <section class="tabs-content">
+      <section v-if="activeTab === 'tabs-1'">
+        tab1の情報
+      </section>
+      <section v-else-if="activeTab === 'tabs-2'">
+        tab2の情報
+      </section>
+      <section v-else-if="activeTab === 'tabs-3'">
+        tab3の情報
+      </section>
+
+    </section>
+  </div>
+  <!-- 全て文字列を入れている点に注意が必要です。 -->
+  <script src="main.js"></script>
+</body>
+
+</html>
+
+<!--
+v-showの場合はdisplay:none;,
+v-ifの場合はhtmlコードそのものを操作します。
+表示する場合は、当該の要素をコードを追加し、
+非表示の場合は、コードごと削除します。
+ -->
+
+<!-- v-showの場合は次表示非表示にかかわらず全てを最初に要素っを作成します。
+非表示にするものはdisplay:none;で消します
+切り替え頻度で使い分けをします。
+頻度が多い場合はv-show,少ない場合はv-ifで追加削除する処理
+負担的にはコードそのものを削除する方が負担になりやすいdの絵ちゅいが必要です。-->
+
+//配列情報をもとにしたタブを作成する場合ついて
