@@ -314,7 +314,7 @@ const buttonSns = {
       <button-empathy></button-empathy>
     </div>
   `,
-};
+};  
 
 
 new Vue({
@@ -368,3 +368,4 @@ new Vue({
     'button-sns': buttonSns
   },
 });
+

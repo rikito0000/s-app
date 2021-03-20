@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  　　　　
+  <!-- もし条件がtrueならliにactiveクラスをつけますという記述をしている　 -->
+  <li v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = tabs-1">
+    タブ１
+    <!-- クリックしたらインスタンスのデータに値を代入するようにセットしておく -->
+  </li>
+
+  <li v-bind:class="{active: activeTab === 'tabs-2'}" v-on:click="activeTab = tabs-2">
+    タブ２
+  </li>
+  <li v-bind:class="{active: activeTab === 'tabs-3'}" v-on:click="activeTab = tabs-3">
+    タブ３
+  </li>
+  <section class="tabs-content">
+    <section v-show="activeTab === 'tabs-1'">
+      <p> tab1の内容が入ります</p>
+    </section>
+    <section v-show="activeTab === 'tabs-2'">
+      <p> tab2の内容が入ります</p>
+    </section>
+    <section v-show="activeTab === 'tabs-3'">
+      <p> tab3の内容が入ります</p>
+    </section>
+  </section>
+  </ul>
+  </div>
+
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>
