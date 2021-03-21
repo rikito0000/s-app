@@ -284,10 +284,6 @@ new Vue({
 // スロットというものについて説明します。
 
 // コンポーネントにコンテンツを渡す
-
-*/
-
-
 const buttonPreference = {
   data() {
     return { count: 0 };
@@ -310,6 +306,20 @@ new Vue({
   components: {
     'button-preference': buttonPreference,
   },
-});
+});;
+//プラグインを使用すると、機能を追加します。
+//具体的にはメソッドやカスタムディレクティブ、コンポーネントなどを追加です。
+
+*/
+
+new Vue({
+  el: '#example',
+  components: {
+    carousel: VueCarousel.Carousel,
+    slide: VueCarousel.Slide,
+  },
+})
+
+
 
 
