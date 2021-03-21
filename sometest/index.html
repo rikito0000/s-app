@@ -32,7 +32,7 @@
   </div>
  -->
   <div id="example">
-    <template v-if="tabs !== null">
+    <!--     <template v-if="tabs !== null">
       <ul class="tabs-menu">
         <li v-for="tab in tabs" v-bind:key="tab.id" v-bind:class="{active: activeTab.id === tab.id}"
           v-on:click="activeTab = tab">
@@ -50,9 +50,11 @@
     </template>
     <div v-some-test="2000">kieru</div>
     <div v-name="10000">kieru</div>
-    <div v-change-color="'red'">変わります</div>
+    <div v-change-color="''">変わります</div>
     <button-preference></button-preference>
-    <button-pre></button-pre>
+   -->
+
+    <button-preference v-bind:initial-count="0">すごいね</button-preference>
   </div>
 
   <script src="main.js"></script>
@@ -63,3 +65,4 @@
 
 <!-- createdというオプションを追加しています。ライフサイクルフックと呼ばれる関数の一つで
 特定のタイミンぶで処理を行うことを目的にVueで用意されている -->
+<!-- ローカル登録とされている -->

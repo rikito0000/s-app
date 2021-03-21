@@ -33,7 +33,7 @@
 //事前にある情報（配列やオブジェクト）もとにデータを作る場合
 //v-forディレクティブを用いて、配列やobjectないにあるデータを一件ごとに設定していく場合のことを言います
 
-Vue.directive('some-test', {
+/* Vue.directive('some-test', {
   bind(el, binding) {
     setTimeout(() => {
       el.style.display = 'none';
@@ -41,15 +41,15 @@ Vue.directive('some-test', {
   },
 });
 
-// カスタムディレクティブを登録するにはvue.directiveというメソッドが必要です
+// カスタ *
 
-Vue.directive('name', {
+/* Vue.directive('name', {
   bind(el, binding) {
     setTimeout(() => {
       el.style.display = 'none';
     }, binding.value);
   },
-});
+}); */
 
 // ディレクティブにはイベントハンドラを登録することができます
 
@@ -61,16 +61,16 @@ Vue.directive('name', {
   },
 }); */
 
-Vue.directive('change-color', {
+/* Vue.directive('change-color', {
   bind(el, binding) {
     el.addEventListener('click', () => {
       el.style.color = binding.value;
     });
   },
-});
+}); */
 //呼び出されたら色が変わる処理をしている
 // ちゃんと文字列を入れるためにディレクティブの'red'文字列にすること
-Vue.component('button-preference', {
+/* Vue.component('button-preference', {
   data() {
     return { count: 0 };
   },
@@ -96,7 +96,13 @@ Vue.component('button-pre', {
 })
 
 
-
+Vue.component('component-examples', {
+  template: `
+ <div>
+    <div v-for="example in examples">{{ example }}</div>
+ </div>
+  `,
+});
 
 new Vue({
   el: '#example',
@@ -131,4 +137,179 @@ new Vue({
 
 
 // ディレクティブでドム操作を自動化している
+//Vue コンポーネントについて
+
+//グローバル登録
+
+
+ */
+/* 
+
+Vue.component('button-s', {
+  template: `<button>iine</button>`,
+});
+
+Vue.component('button-d', {
+  template: `<button>dame</button>`,
+});
+
+Vue.component('button-sns', {
+  template: `<div>
+  <button-s></button-s>
+  <button-d></button-d>
+  </div>`
+});
+
+const buttonS = {
+  template: `<button>iine</button>`,
+};
+
+const buttonD = {
+  template: `<button>dame</button>`,
+};
+
+const buttonSns = {
+  components: {
+    'button-s': buttonS,
+    'button-d': buttonD
+  },
+  template: `
+   <div>
+     <button-s></button-s>
+     <button-d></button-d>
+   </div>
+  `
+};
+
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-sns': buttonSns
+  },
+});
+
+
+
+const buttonPreference = {
+  props: ['initialCount'],
+  template: `
+     <button>
+       {{ initialCount }} いいね！
+     </button>
+   `,
+};
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference,
+  },
+});
+
+
+
+// propsにはキャメルケースで書き、テンプレートにはケバブケースで書く必要ある
+
+const buttonPreference = {
+  props: {
+    initialCount: {
+      type: Number,
+      required: true,
+    },
+  },
+
+  template: `
+      <button>
+        {{ initialCount }}　いいね！
+      </button>
+    `,
+};
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference,
+  },
+});
+
+const buttonPreference = {
+  props: ['initialCount'],
+  methods: {
+    countUp() {
+      this.initialCount += 1;
+    },
+  },
+  template: `
+    <button v-on:click="countUp">
+      {{ initialCount }} いいね！
+    </button>
+  `,
+};
+
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference,
+  },
+});
+
+const buttonPreference = {
+  props: ['initialCount'],
+  data() {
+    return { count: this.initialCount };
+  },
+  methods: {
+    countUp() {
+      this.count += 1;
+    },
+  },
+  template: `
+    <button v-on:click="countUp">
+    {{ count }} いいね
+    </button>
+  `,
+};
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference
+  },
+});
+
+
+
+// スロットというものについて説明します。
+
+// コンポーネントにコンテンツを渡す
+
+*/
+
+
+const buttonPreference = {
+  data() {
+    return { count: 0 };
+  },
+  methods: {
+    countUp() {
+      this.count += 1;
+    },
+  },
+  template: `
+   <button v-on:click="countUp">
+     {{ count }} <slot></slot>
+   </button>
+  `,
+};
+
+
+new Vue({
+  el: '#example',
+  components: {
+    'button-preference': buttonPreference,
+  },
+});
+
 
