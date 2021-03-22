@@ -13,6 +13,7 @@
 const app = new Vue({
   el: '#app',
   data: {
+    toggle: true,
     largeClass: {
       large: true,
       'bg-gray': true
