@@ -12,7 +12,7 @@
 
 <body>
   <div id="app">
-    <p v-if="color === 'red'">
+    <!--  <p v-if="color === 'red'">
       stop
     </p>
     <p v-else-if="color === 'yellow'">
@@ -25,6 +25,31 @@
       not red/yellow/blue
     </p>
     <p v-show="toggle">hello vue.js</p>
+    <p>
+    </p> -->
+    <!--  <button v-on:click="counter++">
+      Click!
+    </button>
+    <button v-on:click="clickHandler($event, 'vue.js')">
+      Click2
+    </button> -->
+    <button @click="clickH">
+      Now
+    </button>
+    <p>
+      {{ message }}
+    </p>
+    <!-- keyの修飾子 -->
+    <input type="text" v-on:keyup.27.space.up="clear" v-model="message">
+    <p>
+      {{ message }}
+    </p>
+    <button v-on:click="clickHandler">
+      click1
+    </button>
+    <button @click="clickHandler">
+      click2
+    </button>
   </div>
   <script src="main.js"></script>
 </body>
